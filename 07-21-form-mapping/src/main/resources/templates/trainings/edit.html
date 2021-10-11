@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"
+   xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: head">
+   <title>Bearbeitung: [(${training.topic})]</title>
+</head>
+<body>
+
+<span th:replace="fragments/header :: body/content()"></span>
+
+<main role="main" class="container">
+
+   <div class="starter-template">
+      <h1>Bearbeitung: [(${training.topic})]</h1>
+      <form action="#" th:action="@{/trainings/{id}(id=${training.id})}"
+            th:object="${training}" method="post" class="text-left">
+
+            <label for="location">Veranstaltungsort</label>
+            <input th:field="*{location}" type="text" class="form-control" id="location"
+                   aria-describedby="locationDescription" placeholder="Ort / Remote">
+            <small id="locationDescription" class="form-text text-muted">Veranstaltungsort des Trainings</small>
+            <p class="alert-warning" th:if="${#fields.hasErrors('location')}" th:errors="*{location}">Fehler</p>
+
+            <label for="topic">Thema</label>
+            <input th:field="*{topic}" type="text" class="form-control" id="topic"
+                   aria-describedby="topicDescription" placeholder="Thema">
+            <small id="topicDescription" class="form-text text-muted">Thema des Trainings</small>
+            <p class="alert-warning" th:if="${#fields.hasErrors('topic')}" th:errors="*{topic}">Fehler</p>
+
+            <label for="instructor">Trainer</label>
+            <input th:field="*{instructor.name}" type="text" class="form-control" id="instructor"
+                   aria-describedby="instructorDescription" placeholder="Trainer">
+            <small id="instructorDescription" class="form-text text-muted">Trainer für das Trainings</small>
+            <p class="alert-warning" th:if="${#fields.hasErrors('instructor.name')}" th:errors="*{instructor.name}">Fehler</p>
+
+         <input type="hidden" th:field="*{version}" />
+         <button type="submit" class="btn btn-primary btn-lg">Speichern</button>
+         (Version: [[${training.version}]],
+         Erstellt: <span th:text="${#temporals.format(training.createdOn, 'HH:mm:ss')}"></span>,
+         Bearbeitet: <span th:text="${#temporals.format(training.modifiedOn, 'HH:mm:ss')}"></span>
+      </form>
+   </div>
+</main><!-- /.container -->
+
+<span th:replace="fragments/footer :: body/content()"></span>
+
+</body>
+</html>

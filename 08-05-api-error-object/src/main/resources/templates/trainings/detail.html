@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"
+   xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: head">
+   <title>Training: [(${training.topic})]</title>
+</head>
+<body>
+
+<span th:replace="fragments/header :: body/content()"></span>
+
+<main role="main" class="container">
+
+   <div class="starter-template">
+      <h1>Training: [(${training.topic})]</h1>
+      <table class="table">
+         <thead>
+         <tr>
+            <th>Ort</th>
+            <th>Thema</th>
+            <th>Trainer</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr >
+            <td th:text="${training.location}"></td>
+            <td th:text="${training.topic}"></td>
+            <td th:text="${training.instructor.name}"></td>
+         </tr>
+         <tr>
+            <td colspan="3">Beschreibung: <span th:text="${training.description}"></span> </td>
+         </tr>
+         </tbody>
+      </table>
+   </div>
+   <a class="btn btn-warning" th:href="@{/trainings/{id}/edit(id=${training.id})}">
+      Bearbeiten
+   </a>
+</main><!-- /.container -->
+
+<span th:replace="fragments/footer :: body/content()"></span>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"
+   xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: head">
+   <title>Info</title>
+</head>
+<body>
+
+<span th:replace="fragments/header :: body/content()"></span>
+
+<main role="main" class="container">
+
+   <div class="starter-template">
+      <h1 th:text="${heading}">Platzhalter</h1>
+      <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+   </div>
+
+</main><!-- /.container -->
+
+<span th:replace="fragments/footer :: body/content()"></span>
+
+</body>
+</html>

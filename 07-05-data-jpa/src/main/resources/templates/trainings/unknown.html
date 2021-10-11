@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"
+   xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: head">
+   <title>Unbekanntes Training</title>
+</head>
+<body>
+
+<span th:replace="fragments/header :: body/content()"></span>
+
+<main role="main" class="container">
+
+   <div class="starter-template">
+      <h1>Training ist unbekannt!</h1>
+      <p>Das Training wurde leider nicht gefunden.</p>
+
+   </div>
+
+</main><!-- /.container -->
+
+<span th:replace="fragments/footer :: body/content()"></span>
+
+</body>
+</html>

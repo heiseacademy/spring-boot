@@ -1,0 +1,24 @@
+logging:
+  level:
+    de.trion.trainingapp: info
+  file:
+    name: /tmp/training.log
+training:
+  default-location: Web
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+training:
+  default-location: entwicklung-yaml
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+training:
+  default-location: test-location

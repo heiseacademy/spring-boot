@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title data-template th:replace=":: title[!data-template]">Spring Boot</title>
+
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}" rel="stylesheet">
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    body {
+      padding-top: 5rem;
+    }
+    .starter-template {
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    div.tt-menu {
+      background-color: white;
+      margin-top: 7px;
+      padding: 5px;
+      min-width: 200px;
+      border: 2px solid lightgray;
+    }
+  </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">Spring Boot</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/trainings}" href="#">Trainings <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/hello}" href="/hello">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  th:href="@{/info}" href="#">Info</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+</body>
+</html>

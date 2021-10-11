@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"
+   xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: head">
+   <title>Info</title>
+</head>
+<body>
+
+<span th:replace="fragments/header :: body/content()"></span>
+
+<main role="main" class="container">
+
+   <div class="starter-template">
+      <h1 th:text="${heading}">Platzhalter</h1>
+      <table class="table">
+         <thead>
+         <tr>
+            <th>Ort</th>
+            <th>Thema</th>
+            <th>Trainer</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr th:each="training: ${trainings}" >
+            <td th:text="${training.location}"></td>
+            <td th:text="${training.topic}"></td>
+            <td th:text="${training.instructor.name}"></td>
+         </tr>
+         </tbody>
+      </table>
+
+      <h2>Neues Training</h2>
+      <form action="#" th:action="@{/trainings}" th:object="${training}" method="post">
+         <div class="row">
+            <div class="form-group col">
+               <label for="location">Veranstaltungsort</label>
+               <input th:field="*{location}" type="text" class="form-control" id="location"
+                      aria-describedby="locationDescription" placeholder="Ort / Remote">
+               <small id="locationDescription" class="form-text text-muted">Veranstaltungsort des Trainings</small>
+            </div>
+
+            <div class="form-group col">
+               <label for="topic">Thema</label>
+               <input th:field="*{topic}" type="text" class="form-control" id="topic"
+                      aria-describedby="topicDescription" placeholder="Thema">
+               <small id="topicDescription" class="form-text text-muted">Thema des Trainings</small>
+            </div>
+
+            <div class="form-group col">
+               <label for="instructor">Trainer</label>
+               <input th:field="*{instructor}" type="text" class="form-control" id="instructor"
+                      aria-describedby="instructorDescription" placeholder="Trainer">
+               <small id="instructorDescription" class="form-text text-muted">Trainer für das Trainings</small>
+            </div>
+         </div>
+         <button type="submit" class="btn btn-primary btn-lg">Erzeugen</button>
+      </form>
+   </div>
+
+</main><!-- /.container -->
+
+<span th:replace="fragments/footer :: body/content()"></span>
+
+</body>
+</html>
